@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+    <model name="still_rx60">
+        <plugin name="control" filename="libcontrol_plugin.so"/>
+        <static>1</static>
+
+        <!-- ************************************************************************* -->
+        <!-- ****************            Links                         *************** -->
+        <!-- ************************************************************************* -->
+        <!-- <link name="base_footprint">
+            <visual name="base_footprint_geom_visual">
+                <pose>0.000 0.000 0.000 0.000 0.000 0.000</pose>
+                <geometry>
+                    <box>0.001 0.001 0.001</box>
+                </geometry>
+            </visual>
+        </link> -->
+
+        <link name="base_link">
+            <pose>0 0 0.1 0 0 0</pose>
+            <inertial>
+                <pose>1.3526001  0.         0.58135178 0.0 0.0 0.0 </pose>
+                <mass>11670</mass>
+                <inertia>
+                    <ixx>4379.314393</ixx>
+                    <ixy>-0.000000</ixy>
+                    <ixz>-91.339376</ixz>
+                    <iyy>6811.636495</iyy>
+                    <iyz>0.000000</iyz>
+                    <izz>5227.893809</izz>
+                </inertia>
+            </inertial>
+
+            <visual name="base_geom_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/still_rx60_chassis.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/White</name>
+                    </script>
+                </material>
+            </visual>
+
+            <collision name="base_geom">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/still_rx60_chassis.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="fork_link">
+            <pose>-0.450 0.000 0.00 0.000 0.000 0.000</pose>
+            <inertial>
+                <pose>-1.3100884e-01 -1.0000000e-08  2.3893431e-01  0.0 -0.698132 0.0 </pose>
+                <mass>200.0</mass>
+                <inertia>
+                    <ixx>30.772274</ixx>
+                    <ixy>-0.000000</ixy>
+                    <ixz>-6.426465</ixz>
+                    <iyy>22.789314</iyy>
+                    <iyz>-0.000000</iyz>
+                    <izz>28.280530</izz>
+                </inertia>
+            </inertial>
+
+            <visual name="fork_geom_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/fork.stl</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <collision name="fork_geom">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/fork.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="left_shock_link">
+            <pose>1.650 -0.450 0.280 0.000 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>1e+16</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1e+16</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1e+16</izz>
+                </inertia>
+            </inertial>
+        </link>
+
+        <link name="right_shock_link">
+            <pose>1.650 0.450 0.280 0.000 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>1e+16</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1e+16</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1e+16</izz>
+                </inertia>
+            </inertial>
+        </link>
+
+        <link name="left_rear_wheel">
+            <pose>0.050 -0.500 0.280 0.0 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0 </pose>
+                <mass>100.0</mass>
+                <inertia>
+                    <ixx>2.200511</ixx>
+                    <ixy>0.000000</ixy>
+                    <ixz>0.000000</ixz>
+                    <iyy>3.919355</iyy>
+                    <iyz>0.000000</iyz>
+                    <izz>2.200511</izz>
+                </inertia>
+            </inertial>
+
+            <visual name="left_rear_wheel_geom_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/rear_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Black</name>
+                    </script>
+                </material>
+            </visual>
+
+            <collision name="left_rear_wheel_geom">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/rear_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+
+        </link>
+
+        <link name="right_rear_wheel">
+            <pose>0.050 0.500 0.280 0.0 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0 </pose>
+                <mass>100.0</mass>
+                <inertia>
+                    <ixx>2.200511</ixx>
+                    <ixy>0.000000</ixy>
+                    <ixz>0.000000</ixz>
+                    <iyy>3.919355</iyy>
+                    <iyz>0.000000</iyz>
+                    <izz>2.200511</izz>
+                </inertia>
+            </inertial>
+
+            <visual name="right_rear_wheel_geom_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/rear_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Black</name>
+                    </script>
+                </material>
+            </visual>
+
+            <collision name="right_rear_wheel_geom">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/rear_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+
+        </link>
+
+        <link name="left_front_wheel">
+            <pose>1.650 -0.450 0.210 0.0 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <mass>80.0</mass>
+                <inertia>
+                    <ixx>1.012522</ixx>
+                    <ixy>0.000000</ixy>
+                    <ixz>-0.000000</ixz>
+                    <iyy>1.763710</iyy>
+                    <iyz>0.000000</iyz>
+                    <izz>1.012522</izz>
+                </inertia>
+            </inertial>
+
+            <visual name="left_front_wheel_geom_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/front_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Black</name>
+                    </script>
+                </material>
+            </visual>
+
+            <collision name="left_front_wheel_geom">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/front_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+
+        </link>
+
+        <link name="right_front_wheel">
+            <pose>1.650 0.450 0.210 0.0 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <mass>80.0</mass>
+                <inertia>
+                    <ixx>1.012522</ixx>
+                    <ixy>0.000000</ixy>
+                    <ixz>-0.000000</ixz>
+                    <iyy>1.763710</iyy>
+                    <iyz>0.000000</iyz>
+                    <izz>1.012522</izz>
+                </inertia>
+            </inertial>
+
+            <visual name="right_front_wheel_geom_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/front_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Black</name>
+                    </script>
+                </material>
+            </visual>
+
+            <collision name="right_front_wheel_geom">
+                <geometry>
+                    <mesh>
+                        <uri>model://still_rx60/meshes/front_wheel.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+
+        </link>
+
+        <link name="contact_link">
+            <pose>-0.750 0.000 -0.1 0.000 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>1e+16</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1e+16</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1e+16</izz>
+                </inertia>
+            </inertial>
+
+            <collision name="contact_link_geom">
+                <geometry>
+                    <box>
+                        <size>.4 .8 .08</size>
+                    </box>
+                </geometry>
+            </collision>
+
+            <sensor name='contact_sensor' type='contact'>
+      <always_on>true</always_on>
+                <contact>
+                    <collision>contact_link_geom</collision>
+                </contact>
+                    <plugin name="contact_sensor_plugin" filename="libcontact_plugin.so"/>
+            </sensor>
+        </link>
+
+        <link name="tim_link">
+            <pose>-0.43 0.000 0.26 3.141592653589793 0.000 0.0</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>1e+16</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1e+16</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1e+16</izz>
+                </inertia>
+            </inertial>
+
+            <collision name="tim_geom">
+                <pose>0.000 0.000 0.000 0.000 0.000 0.7853981633974485</pose>
+                <geometry>
+                    <box>
+                        <size>0.05 0.05 0.05</size>
+                    </box>
+                </geometry>
+            </collision>
+
+            <visual name="tim_geom_visual">
+                <pose>0.000 0.000 0.000 0.000 0.000 0.7853981633974485</pose>
+                <geometry>
+                    <box>
+                        <size>0.05 0.05 0.05</size>
+                    </box>
+                </geometry>
+            </visual>
+
+            <sensor name="tim_sensor" type="gpu_ray">
+                <pose>0.0 0.00 0 0 0 3.141592653589793</pose>
+
+                <visualize>false</visualize>
+                <update_rate>15</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>810</samples>
+                            <resolution>1.000000</resolution>
+                            <min_angle>-2.3561945</min_angle>
+                            <max_angle>2.3561945</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.05</min>
+                        <max>10.0</max>
+                        <resolution>0.005</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.010</stddev>
+                    </noise>
+                </ray>
+                <plugin name="gazebo_ros_tim_controller" filename="libgazebo_ros_gpu_laser.so">
+                    <topicName>tim/scan</topicName>
+                    <frameName>/tim</frameName>
+                </plugin>
+            </sensor>
+        </link>
+
+        <link name="rslidar_base_link">
+            <pose>0.850 0.000 2.720 0.000 0.000 0.000</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>1e+16</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1e+16</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1e+16</izz>
+                </inertia>
+            </inertial>
+
+            <collision name="rslidar_base_geom">
+                <geometry>
+                    <cylinder>
+                        <radius>0.0545</radius>
+                        <length>0.0827</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+
+            <visual name="rslidar_base_geom_visual">
+                <geometry>
+                    <cylinder>
+                        <radius>0.0545</radius>
+                        <length>0.0827</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+        <link name="rslidar_link">
+            <pose>0.850 0.000 2.880 0.000 0.0 0.0</pose>
+            <inertial>
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>1e+16</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1e+16</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1e+16</izz>
+                </inertia>
+            </inertial>
+
+            <sensor name="rslidar_sensor" type="gpu_ray">
+                <pose>0 0 0 0 0 0</pose>
+                <visualize>false</visualize>
+                <update_rate>10</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>2016</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-3.141592653589793</min_angle>
+                            <max_angle>3.141592653589793</max_angle>
+                        </horizontal>
+                        <vertical>
+                            <samples>16</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-0.2617992</min_angle>
+                            <max_angle>0.2617992</max_angle>
+                        </vertical>
+                    </scan>
+                    <range>
+                        <min>0.20</min>
+                        <max>150.0</max>
+                        <resolution>0.005</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.005</stddev>
+                    </noise>
+                </ray>
+                <plugin name="gazebo_ros_rslidar_controller" filename="libgazebo_ros_gpu_laser.so">
+                    <topicName>rslidar/scan</topicName>
+                    <frameName>/rslidar</frameName>
+                </plugin>
+            </sensor>
+        </link>
+
+        <!-- ************************************************************************* -->
+        <!-- ****************           Joints                         *************** -->
+        <!-- ************************************************************************* -->
+        <!-- <joint name="base_footprint_joint" type="fixed">
+            <parent>base_footprint</parent>
+            <child>base_link</child>
+        </joint> -->
+
+        <joint name="base_joint" type="prismatic">
+            <parent>base_link</parent>
+            <child>fork_link</child>
+            <axis>
+                <xyz>0.000000 0.000000 1.000000</xyz>
+                <limit>
+                    <lower>0.2</lower>
+                    <upper>5.0</upper>
+                    <effort>1000</effort>
+                    <velocity>0.2</velocity>
+                </limit>
+            </axis>
+        </joint>
+
+        <joint name="left_shock_joint" type="revolute">
+            <parent>base_link</parent>
+            <child>left_shock_link</child>
+            <axis>
+                <xyz>0.000000 0.000000 1.000000</xyz>
+                <limit>
+                    <lower>-1.570796</lower>
+                    <upper>1.570796</upper>
+                </limit>
+                <dynamics>
+                    <friction>0.001</friction>
+                </dynamics>
+            </axis>
+        </joint>
+        <joint name="right_shock_joint" type="revolute">
+            <parent>base_link</parent>
+            <child>right_shock_link</child>
+            <axis>
+                <xyz>0.000000 0.000000 1.000000</xyz>
+                <limit>
+                    <lower>-1.570796</lower>
+                    <upper>1.570796</upper>
+                </limit>
+                <dynamics>
+                    <friction>0.001</friction>
+                </dynamics>
+            </axis>
+        </joint>
+
+        <joint name="left_rear_axle" type="revolute">
+            <parent>base_link</parent>
+            <child>left_rear_wheel</child>
+            <axis>
+                <xyz>0.000000 1.000000 0.000000</xyz>
+                <limit>
+                    <effort>1.0</effort>
+                </limit>
+                <dynamics>
+                    <friction>0.001</friction>
+                </dynamics>
+            </axis>
+            <physics>
+                <ode>
+                    <limit>
+                        <cfm>0.0</cfm>
+                        <erp>0.9</erp>
+                    </limit>
+                </ode>
+            </physics>
+        </joint>
+        <joint name="right_rear_axle" type="revolute">
+            <parent>base_link</parent>
+            <child>right_rear_wheel</child>
+            <axis>
+                <xyz>0.000000 1.000000 0.000000</xyz>
+                <limit>
+                    <effort>1.0</effort>
+                </limit>
+                <dynamics>
+                    <friction>0.001</friction>
+                </dynamics>
+            </axis>
+            <physics>
+                <ode>
+                    <limit>
+                        <cfm>0.0</cfm>
+                        <erp>0.9</erp>
+                    </limit>
+                </ode>
+            </physics>
+        </joint>
+        <joint name="left_front_axle" type="revolute">
+            <parent>left_shock_link</parent>
+            <child>left_front_wheel</child>
+            <axis>
+                <xyz>0.000000 1.000000 0.000000</xyz>
+                <limit>
+                    <effort>1.0</effort>
+                </limit>
+                <dynamics>
+                    <friction>0.001</friction>
+                </dynamics>
+            </axis>
+            <physics>
+                <ode>
+                    <limit>
+                        <cfm>0.0</cfm>
+                        <erp>0.9</erp>
+                    </limit>
+                </ode>
+            </physics>
+        </joint>
+        <joint name="right_front_axle" type="revolute">
+            <parent>right_shock_link</parent>
+            <child>right_front_wheel</child>
+            <axis>
+                <xyz>0.000000 1.000000 0.000000</xyz>
+                <limit>
+                    <effort>1.0</effort>
+                </limit>
+                <dynamics>
+                    <friction>0.001</friction>
+                </dynamics>
+            </axis>
+            <physics>
+                <ode>
+                    <limit>
+                        <cfm>0.0</cfm>
+                        <erp>0.9</erp>
+                    </limit>
+                </ode>
+            </physics>
+        </joint>
+
+        <joint name="contact_joint" type="fixed">
+            <parent>fork_link</parent>
+            <child>contact_link</child>
+        </joint>
+
+        <joint name="tim_joint" type="fixed">
+            <parent>fork_link</parent>
+            <child>tim_link</child>
+        </joint>
+
+        <joint name="rslidar_base_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>rslidar_base_link</child>
+            <axis>
+                <xyz>0.000000 0.000000 1.000000</xyz>
+                <limit>
+                    <effort>204.95</effort>
+                    <velocity>39.02</velocity>
+                </limit>
+            </axis>
+        </joint>
+        <joint name="rslidar_joint" type="fixed">
+            <parent>rslidar_base_link</parent>
+            <child>rslidar_link</child>
+        </joint>
+
+    </model>
+</sdf>
